@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>SmartFilter.AI - Phishing Detector</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      background-color: #f5f7fa;
+    }
+
+    .full-screen-container {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: #4a6bff;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .header h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .header p {
+      font-size: 1.8rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .options-container {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .section-title {
+      color: #333;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      width: 100%;
+    }
+
+    .option-card {
+      background-color: #f8f9fc;
+      border-radius: 15px;
+      padding: 50px 35px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .option-card:hover {
+      border-color: #4a6bff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .option-card h3 {
+      color: #4a6bff;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .option-card p {
+      color: #666;
+      font-size: 1.3rem;
+    }
+
+    .option-icon {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      color: #4a6bff;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+
+      .option-card {
+        padding: 40px 25px;
+      }
+
+      .option-card h3 {
+        font-size: 1.8rem;
+      }
+
+      .option-card p {
+        font-size: 1.1rem;
+      }
+
+      .option-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+</head>
+<body>
+  
+
+
+
+  <div class="full-screen-container">
+    <div class="header">
+      <h1>SmartFilter.AI</h1>
+      <p>"DON'T GET HOOKED - DETECT PHISHING BEFORE IT BITES"</p>
+    </div>
+
+    <div class="main-content">
+      <div class="options-container">
+        <h2 class="section-title">Choose a category:</h2>
+
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption('text')">
+            <div class="option-icon">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3>Text</h3>
+            <p>Analyze email content or text messages for phishing attempts</p>
+          </div>
+
+          <div class="option-card" onclick="selectOption('url')">
+            <div class="option-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <h3>URL</h3>
+            <p>Check suspicious links for phishing indicators</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectOption(option) {
+      window.location.href = `${option}-detection.html`;
+    }
+    
+  </script>
+</body>
+</html>

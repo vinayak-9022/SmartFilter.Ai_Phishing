@@ -1,0 +1,550 @@
+/* ==== General Page Layout ==== */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #e0eafc);
+}
+
+/* ==== Card Styling ==== */
+.card {
+  background: rgba(255, 255, 255, 0.4); /* Slightly transparent white */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== Heading ==== */
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ==== Textarea ==== */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* ==== Button Styling ==== */
+button {
+  padding: 0.8rem 2rem;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==== Results Section ==== */
+#predictionResult,
+#confidenceResult,
+#redFlagsResult {
+  margin-top: 15px;
+  min-height: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#result {
+  margin-top: 1.5rem;
+}
+
+/* ==== Output Styling ==== */
+.phishing {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.legit {
+  background-color: #e6ffe6;
+  color: #009900;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ==== Probability Text ==== */
+#probability {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ==== Animation & Effects ==== */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* ==== Hidden Utility ==== */
+.hidden {
+  display: none;
+}
+
+/* ==== Spinner (Loading) ==== */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-left-color: #4CAF50;
+  margin: 10px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==== Flag List Style ==== */
+ul {
+  text-align: left;
+  padding-left: 20px;
+  color: #e63946;
+  margin-top: 10px;
+}
+.results-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  width: 100%;
+  max-width: 350px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.results-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+#confidenceResult {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#redFlagsResult ul {
+  padding-left: 20px;
+}
+
+#redFlagsResult li {
+  color: #d63031;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #c3ecf7, #a0c1f7, #f8f9fa, #e0eafc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.background-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  z-index: -1;
+  opacity: 0.4;
+  animation: float 10s ease-in-out infinite;
+}
+
+.blob1 {
+  top: -150px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.blob2 {
+  bottom: -100px;
+  right: -150px;
+  animation-delay: 2s;
+}
+
+.blob3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+.blob1, .blob2, .blob3 {
+  animation: float 12s ease-in-out infinite;
+}
+.upload-container {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: #e0eafc;
+  border-radius: 30px;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-label:hover {
+  background-color: #d0dbff;
+}
+
+.upload-label .plus-sign {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.upload-label input[type="file"] {
+  display: none;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Small circular upload button */
+.icon-upload-label {
+  width: 38px;
+  height: 38px;
+  background-color: #e0eafc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.icon-upload-label:hover {
+  background-color: #d0dbff;
+}
+
+.icon-upload-label .plu/* ==== General Page Layout ==== */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #c3ecf7, #a0c1f7, #f8f9fa, #e0eafc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== Blobs ==== */
+.background-blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  z-index: -1;
+  opacity: 0.4;
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.blob1 {
+  top: -150px;
+  left: -150px;
+  animation-delay: 0s;
+}
+.blob2 {
+  bottom: -100px;
+  right: -150px;
+  animation-delay: 2s;
+}
+.blob3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+/* ==== Card Styling ==== */
+.card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== Heading ==== */
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ==== Textarea ==== */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* ==== Button Styling ==== */
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  background-color: #4a6bff;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==== Upload Icon Button ==== */
+.icon-upload-label {
+  width: 38px;
+  height: 38px;
+  background-color: #e0eafc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-upload-label:hover {
+  background-color: #d0dbff;
+}
+
+.icon-upload-label input[type="file"] {
+  display: none;
+}
+
+/* ==== Spinner ==== */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-left-color: #4CAF50;
+  margin: 15px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==== Results ==== */
+.results-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  width: 100%;
+  max-width: 350px;
+  animation: fadeIn 0.5s ease-in;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* ==== Output Indicators ==== */
+.phishing {
+  background-color: #ffe6e6;
+  color: #cc0000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.legit {
+  background-color: #e6ffe6;
+  color: #009900;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#confidenceResult {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#redFlagsResult ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#redFlagsResult li {
+  color: #d63031;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+s-sign {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.icon-upload-label input[type="file"] {
+  display: none;
+}
+
+
